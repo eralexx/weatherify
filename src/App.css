@@ -1,0 +1,6 @@
+.spinner {
+  display: block !important;
+  width: 4em !important;
+  height: 4em !important;
+  margin: 80px auto;
+}

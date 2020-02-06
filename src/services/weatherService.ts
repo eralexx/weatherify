@@ -1,9 +1,9 @@
 import axios from "axios";
-import { IWeatherResponse } from "../entities/IWeatherReponse";
+import IWeatherResponse from "../entities/IWeatherReponse";
 
 const apiKey: string = "b5eef92c5c7ad483322050c8885761ff";
 const rootServiceUrl: string =
-  "https://samples.openweathermap.org/data/2.5/weather";
+  "https://api.openweathermap.org/data/2.5/weather";
 
 class WeatherService {
   public static getWeatherByCoords = (
