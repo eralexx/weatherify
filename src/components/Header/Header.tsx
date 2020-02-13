@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Row, Col } from "react-bootstrap";
 import SearchBar from "../SearchBar";
+import ToggleUnits from "../ToggleUnits";
 
 class Header extends React.Component<any, any> {
   public render() {
@@ -22,6 +23,9 @@ class Header extends React.Component<any, any> {
           </Col>
           <Col sm={4}>
             <SearchBar />
+          </Col>
+          <Col sm={4}>
+            <ToggleUnits />
           </Col>
         </Row>
       </>

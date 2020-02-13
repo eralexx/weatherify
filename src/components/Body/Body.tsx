@@ -3,9 +3,10 @@ import { Row, Col, Spinner } from "react-bootstrap";
 import IGlobalState from "../../globalState/IGlobalState";
 import Context from "../../globalState/Context";
 import { Weather } from "../../entities/IWeatherReponse";
+import { useContext } from "react";
 
 const Body = () => {
-  const { Loaded, Forecast }: IGlobalState = React.useContext(Context);
+  const { Loaded, Forecast }: IGlobalState = useContext(Context);
 
   return (
     <>
