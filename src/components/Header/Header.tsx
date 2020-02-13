@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Row, Col } from "react-bootstrap";
+import SearchBar from "../SearchBar";
 
 class Header extends React.Component<any, any> {
   public render() {
@@ -17,9 +18,11 @@ class Header extends React.Component<any, any> {
         </Row>
         <Row>
           <Col sm={8}>
-            <h3>Or browse other place's forecast...</h3>
+            <span>Or browse another place's forecast...</span>
           </Col>
-          <Col sm={4}></Col>
+          <Col sm={4}>
+            <SearchBar />
+          </Col>
         </Row>
       </>
     );
