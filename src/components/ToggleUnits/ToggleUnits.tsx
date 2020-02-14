@@ -18,9 +18,9 @@ const ToggleUnits = () => {
       <Col>Off</Col>
       <Col>
         <Switch
-          checked={Units === UnitsList.Metric}
+          checked={Units === UnitsList.Metric ? true : false}
           onChange={ToggleUnits}
-          value="checkedC"
+          value={Units}
         />
       </Col>
       <Col>On</Col>

@@ -2,8 +2,10 @@ import * as React from "react";
 import { Row, Col, Spinner } from "react-bootstrap";
 import IGlobalState from "../../globalState/IGlobalState";
 import Context from "../../globalState/Context";
-import { Weather } from "../../entities/IWeatherReponse";
+import IWeatherResponse, { Weather } from "../../entities/IWeatherReponse";
 import { useContext } from "react";
+import DayPrediction from "../DayPrediction";
+import TodayWeather from "../TodayWeather";
 
 const Body = () => {
   const { Loaded, Forecast }: IGlobalState = useContext(Context);
@@ -17,10 +19,20 @@ const Body = () => {
             <Col sm={4}>{Forecast.name}</Col>
           </Row>
           <Row>
+            <Col>
+              <TodayWeather
+                data={
+                  Forecast as Pick<
+                    IWeatherResponse,
+                    "main" | "name" | "clouds" | "wind" | "name"
+                  >
+                }
+              />
+            </Col>
             {Forecast.weather.map((day: Weather) => {
               return (
                 <Col sm>
-                  {day.main} {day.id} {day.icon} {day.description}{" "}
+                  <DayPrediction data={day} />
                 </Col>
               );
             })}
@@ -31,7 +43,6 @@ const Body = () => {
           <Spinner className="spinner" animation="grow" variant="info" />
         </div>
       )}
-      );
     </>
   );
 };

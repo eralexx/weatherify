@@ -1,6 +1,6 @@
 enum UnitsList {
-  Imperial,
-  Metric
+  Imperial = "imperial",
+  Metric = "metric"
 }
 
 export default UnitsList;

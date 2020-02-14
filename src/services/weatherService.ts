@@ -1,5 +1,6 @@
 import axios from "axios";
 import IWeatherResponse from "../entities/IWeatherReponse";
+import UnitsList from "../entities/Units";
 
 const apiKey: string = "b5eef92c5c7ad483322050c8885761ff";
 const rootServiceUrl: string =
@@ -8,13 +9,14 @@ const rootServiceUrl: string =
 class WeatherService {
   public static getWeatherByCoords = (
     latitude: number,
-    longitude: number
+    longitude: number,
+    units: UnitsList
   ): Promise<IWeatherResponse> => {
     return new Promise<IWeatherResponse>((resolve, reject) => {
       axios
         .get(
           rootServiceUrl +
-            `?lon=${longitude}&lat=${latitude}&appid=${apiKey}&units=metric`
+            `?lon=${longitude}&lat=${latitude}&appid=${apiKey}&units=${units}`
         )
         .then(({ data }: { data: IWeatherResponse }) => {
           resolve(data);

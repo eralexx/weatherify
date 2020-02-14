@@ -5,18 +5,20 @@ import IWeatherResponse from "../entities/IWeatherReponse";
 import WeatherService from "../services/weatherService";
 import LocationService from "../services/locationService";
 import ICoordinates from "../entities/ICoordinates";
+import UnitsList from "../entities/Units";
 
 class ContextProvider extends Component<any, IGlobalState> {
   constructor(props: any) {
     super(props);
 
-    this.state = { Loaded: false } as IGlobalState;
+    this.state = { Loaded: false, Units: UnitsList.Metric } as IGlobalState;
 
     LocationService.getBrowserLocation().then((location: ICoordinates) => {
       if (location?.available) {
         WeatherService.getWeatherByCoords(
           location?.latitude,
-          location.longitude
+          location.longitude,
+          this.state.Units
         ).then((data: IWeatherResponse) => {
           this.setState({ Forecast: data, Loaded: true });
         });

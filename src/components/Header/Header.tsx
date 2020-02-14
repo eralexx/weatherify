@@ -18,13 +18,13 @@ class Header extends React.Component<any, any> {
           </Col>
         </Row>
         <Row>
-          <Col sm={8}>
+          <Col sm={6}>
             <span>Or browse another place's forecast...</span>
           </Col>
-          <Col sm={4}>
+          <Col sm={3}>
             <SearchBar />
           </Col>
-          <Col sm={4}>
+          <Col sm={3}>
             <ToggleUnits />
           </Col>
         </Row>

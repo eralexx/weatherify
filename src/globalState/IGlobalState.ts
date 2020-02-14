@@ -1,10 +1,10 @@
 import IWeatherResponse from "../entities/IWeatherReponse";
-import Units from "../entities/Units";
+import UnitsList from "../entities/Units";
 
 interface IGlobalState {
   Loaded: boolean;
   Forecast: IWeatherResponse;
-  Units: Units;
+  Units: UnitsList;
   ToggleUnits: () => void;
 }
 
