@@ -11,11 +11,15 @@ class ContextProvider extends Component<any, IGlobalState> {
   constructor(props: any) {
     super(props);
 
-    this.state = { Loaded: false, Units: UnitsList.Metric } as IGlobalState;
+    this.state = {
+      Loaded: false,
+      Units: UnitsList.Metric,
+      ToggleUnits: this.ToggleUnits
+    } as IGlobalState;
 
     LocationService.getBrowserLocation().then((location: ICoordinates) => {
       if (location?.available) {
-        WeatherService.getWeatherByCoords(
+        WeatherService.getWeatherDataByCoords(
           location?.latitude,
           location.longitude,
           this.state.Units
@@ -26,6 +30,26 @@ class ContextProvider extends Component<any, IGlobalState> {
     });
   }
 
+  ToggleUnits = () => {
+    LocationService.getBrowserLocation().then((location: ICoordinates) => {
+      if (location?.available) {
+        WeatherService.getWeatherDataByCoords(
+          location?.latitude,
+          location.longitude,
+          this.state.Units
+        ).then((data: IWeatherResponse) => {
+          this.setState({
+            Forecast: data,
+            Loaded: true,
+            Units:
+              this.state.Units === UnitsList.Metric
+                ? UnitsList.Imperial
+                : UnitsList.Metric
+          });
+        });
+      }
+    });
+  };
   render() {
     return (
       <Context.Provider value={this.state as IGlobalState}>
