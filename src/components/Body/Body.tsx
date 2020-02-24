@@ -8,28 +8,28 @@ import DayPrediction from "../DayPrediction";
 import TodayWeather from "../TodayWeather";
 
 const Body = () => {
-  const { Loaded, Forecast }: IGlobalState = useContext(Context);
+  const { Loaded, CurrentWeather }: IGlobalState = useContext(Context);
 
   return (
     <>
       {Loaded ? (
         <>
           <Row>
-            <Col sm={8}>{Forecast.base}</Col>
-            <Col sm={4}>{Forecast.name}</Col>
+            <Col sm={8}>{CurrentWeather.base}</Col>
+            <Col sm={4}>{CurrentWeather.name}</Col>
           </Row>
           <Row>
             <Col>
               <TodayWeather
                 data={
-                  Forecast as Pick<
+                  CurrentWeather as Pick<
                     IWeatherResponse,
                     "main" | "name" | "clouds" | "wind" | "name"
                   >
                 }
               />
             </Col>
-            {Forecast.weather.map((day: Weather) => {
+            {CurrentWeather.weather.map((day: Weather) => {
               return (
                 <Col sm>
                   <DayPrediction data={day} />

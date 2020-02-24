@@ -6,6 +6,7 @@ import WeatherService from "../services/weatherService";
 import LocationService from "../services/locationService";
 import ICoordinates from "../entities/ICoordinates";
 import UnitsList from "../entities/Units";
+import IApiData from "../entities/IApiData";
 
 class ContextProvider extends Component<any, IGlobalState> {
   constructor(props: any) {
@@ -23,8 +24,16 @@ class ContextProvider extends Component<any, IGlobalState> {
           location?.latitude,
           location.longitude,
           this.state.Units
-        ).then((data: IWeatherResponse) => {
-          this.setState({ Forecast: data, Loaded: true });
+        ).then((data: IApiData) => {
+          this.setState({
+            CurrentWeather: data.current,
+            Forecast: data.forecasts,
+            Loaded: true,
+            Units:
+              this.state.Units === UnitsList.Metric
+                ? UnitsList.Imperial
+                : UnitsList.Metric
+          });
         });
       }
     });
@@ -37,9 +46,10 @@ class ContextProvider extends Component<any, IGlobalState> {
           location?.latitude,
           location.longitude,
           this.state.Units
-        ).then((data: IWeatherResponse) => {
+        ).then((data: IApiData) => {
           this.setState({
-            Forecast: data,
+            CurrentWeather: data.current,
+            Forecast: data.forecasts,
             Loaded: true,
             Units:
               this.state.Units === UnitsList.Metric
