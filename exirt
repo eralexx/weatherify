@@ -1,0 +1,15 @@
+[33md2f1651[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: commit: carousel and cards
+[33me32ca9a[m HEAD@{1}: commit: casual changes
+[33m32d1485[m HEAD@{2}: commit: api refactor
+[33mddd0bef[m HEAD@{3}: commit: structuring data
+[33m18acb75[m HEAD@{4}: commit: added units toggle
+[33m22ca5a9[m HEAD@{5}: commit: added searchBar
+[33mabbe384[m HEAD@{6}: commit: minor changes
+[33md882003[m HEAD@{7}: commit: Some general functionality
+[33mdaeb6cc[m HEAD@{8}: commit: dependencies
+[33m19f6f06[m HEAD@{9}: commit: location service
+[33m89d3bad[m HEAD@{10}: commit: weather service sample endpoints
+[33meaeaf43[m HEAD@{11}: commit: Primitive Layout
+[33m4133d56[m HEAD@{12}: commit: Added geolocation library
+[33m228bffb[m HEAD@{13}: commit: Added dependencies axios & bootstrap
+[33maff2f19[m HEAD@{14}: commit (initial): Initial commit from Create React App

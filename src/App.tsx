@@ -5,7 +5,7 @@ import Body from "./components/Body";
 import ContextProvider from "./globalState/ContextProvider";
 import React from "react";
 import CustomCard from "./components/CustomCard";
-import { Carousel } from "react-bootstrap";
+import Carousel from "./components/CustomCarousel";
 
 const App = () => {
   return (

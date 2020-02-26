@@ -1,6 +1,7 @@
 import * as React from "react";
-import "./Carousel.css";
+import { UAParser } from "ua-parser-js";
 import Carousel from "react-multi-carousel";
+import "./Carousel.css";
 
 const responsiveParams = {
   desktop: {
@@ -20,9 +21,18 @@ const responsiveParams = {
   }
 };
 
+const parser: UAParser = new UAParser();
+parser.setUA(navigator.userAgent);
+const result = parser.getResult();
+const deviceType = (result.device && result.device.type) || "desktop";
+
 const CustomCarousel: React.FC = props => {
   return (
-    <Carousel partialVisbile responsive={responsiveParams}>
+    <Carousel
+      partialVisbile
+      deviceType={deviceType}
+      responsive={responsiveParams}
+    >
       {props.children}
     </Carousel>
   );
