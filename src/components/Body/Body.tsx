@@ -1,14 +1,17 @@
 import * as React from "react";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Row, Col, Spinner, Carousel } from "react-bootstrap";
 import IGlobalState from "../../globalState/IGlobalState";
 import Context from "../../globalState/Context";
-import IWeatherResponse, { Weather } from "../../entities/IWeatherReponse";
+import IWeatherResponse from "../../entities/IWeatherReponse";
+import { List } from "../../entities/IForecastResponse";
 import { useContext } from "react";
 import DayPrediction from "../DayPrediction";
 import TodayWeather from "../TodayWeather";
 
 const Body = () => {
-  const { Loaded, CurrentWeather }: IGlobalState = useContext(Context);
+  const { Loaded, CurrentWeather, Forecast }: IGlobalState = useContext(
+    Context
+  );
 
   return (
     <>
@@ -29,13 +32,15 @@ const Body = () => {
                 }
               />
             </Col>
-            {CurrentWeather.weather.map((day: Weather) => {
-              return (
-                <Col sm>
-                  <DayPrediction data={day} />
-                </Col>
-              );
-            })}
+          </Row>
+          <Row>
+            <Col sm>
+              <Carousel>
+                {Forecast.map((day: List, idx) => {
+                  return <DayPrediction data={day} key={idx} />;
+                })}
+              </Carousel>
+            </Col>
           </Row>
         </>
       ) : (

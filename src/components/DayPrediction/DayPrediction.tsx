@@ -1,14 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
+import CustomCard from "../CustomCard";
+import { List } from "../../entities/IForecastResponse";
 
-class DayPrediction extends React.Component<any, any>  {
-  public render() {
-    return (
-      <div>
-        DayPrediction
-      </div>
-    );
-  }
-}
+const DayPrediction = ({ data }: { data: List }) => {
+  return <CustomCard />;
+};
 
 export default DayPrediction;
-  

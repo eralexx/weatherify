@@ -9,19 +9,12 @@ import Carousel from "./components/CustomCarousel";
 
 const App = () => {
   return (
-    // <ContextProvider>
-    //   <Container>
-    //     <Header />
-    //     <Body />
-    //   </Container>
-    // </ContextProvider>
-    <Carousel>
-      <CustomCard />
-      <CustomCard />
-      <CustomCard />
-      <CustomCard />
-      <CustomCard />
-    </Carousel>
+    <ContextProvider>
+      <Container>
+        <Header />
+        <Body />
+      </Container>
+    </ContextProvider>
   );
 };
 
