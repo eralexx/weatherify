@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Context from "./Context";
 import IGlobalState from "./IGlobalState";
-import IWeatherResponse from "../entities/IWeatherReponse";
 import WeatherService from "../services/weatherService";
 import LocationService from "../services/locationService";
 import ICoordinates from "../entities/ICoordinates";

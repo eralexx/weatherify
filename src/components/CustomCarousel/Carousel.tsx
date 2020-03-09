@@ -29,9 +29,15 @@ const deviceType = (result.device && result.device.type) || "desktop";
 const CustomCarousel: React.FC = props => {
   return (
     <Carousel
+      showDots
+      slidesToSlide={1}
+      containerClass="carousel-with-custom-dots"
+      responsive={responsiveParams}
+      partialVisible
+      infinite
       partialVisbile
       deviceType={deviceType}
-      responsive={responsiveParams}
+      className="react-multi-carousel-list first-carousel-container container"
     >
       {props.children}
     </Carousel>

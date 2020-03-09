@@ -4,8 +4,6 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import ContextProvider from "./globalState/ContextProvider";
 import React from "react";
-import CustomCard from "./components/CustomCard";
-import Carousel from "./components/CustomCarousel";
 
 const App = () => {
   return (
