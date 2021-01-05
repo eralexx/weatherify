@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "create-react-component-folder": "^0.1.30",
     "mdbreact": "^4.25.1"
   }
